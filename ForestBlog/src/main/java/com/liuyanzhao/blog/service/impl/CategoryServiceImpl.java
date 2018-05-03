@@ -61,7 +61,6 @@ public class CategoryServiceImpl implements CategoryService {
 		if(category==null) {
 			return null;
 		}
-
 		//分页显示
 		Page page = null;
 		int totalCount = articleMapperCustom.countArticleByCategory(status,cateId);
@@ -97,6 +96,7 @@ public class CategoryServiceImpl implements CategoryService {
 			articleListVo.setCategoryCustomList(categoryCustomList);
 
 			articleListVoList.add(articleListVo);
+			articleListVo = null;
 		}
         //如果该分类还没有文章
         if(totalCount!=0) {
