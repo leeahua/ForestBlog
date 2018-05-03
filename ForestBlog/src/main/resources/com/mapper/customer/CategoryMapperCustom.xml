@@ -52,7 +52,7 @@
 
 
     <!--获得含有该分类的文章列表-->
-    <select id="listArticleWithCategoryByPage" resultMap="BaseResultMap">
+    <select id="listArticleWithCategoryByPage" resultMap="com.liuyanzhao.blog.mapper.custom.ArticleMapperCustom.ArticleMapperCustom">
         SELECT * FROM `article`
         <where>
             <if test="status!=null">

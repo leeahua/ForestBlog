@@ -63,7 +63,6 @@ public class AdminController {
         modelAndView.addObject("allCommentCount",allCommentCount);
         modelAndView.addObject("approvedCommentCount",approvedCommentCount);
         modelAndView.addObject("hiddenCommentCount",hiddenCommentCount);
-
         modelAndView.setViewName("/Admin/index");
         return modelAndView;
     }

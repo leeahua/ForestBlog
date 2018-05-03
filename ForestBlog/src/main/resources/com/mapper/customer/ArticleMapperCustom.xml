@@ -5,7 +5,6 @@
         <id column="article_id" property="articleId" jdbcType="INTEGER" />
         <result column="article_user_id" property="articleUserId" jdbcType="INTEGER" />
         <result column="article_title" property="articleTitle" jdbcType="VARCHAR" />
-
         <result column="article_parent_category_id" property="articleParentCategoryId" jdbcType="INTEGER" />
         <result column="article_child_category_id" property="articleChildCategoryId" jdbcType="INTEGER" />
         <result column="article_tag_ids" property="articleTagIds" jdbcType="VARCHAR" />

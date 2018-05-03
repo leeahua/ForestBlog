@@ -18,15 +18,15 @@ import java.util.Calendar;
 @Controller
 public class UploadFileController {
 
+
+
     //上传文件
     @RequestMapping(value = "/uploadFile",method = RequestMethod.POST)
     @ResponseBody
     public ResultVO uploadFile(@Param("file")MultipartFile file) throws IOException {
-
         //本地使用,上传位置
         //String rootPath ="/Users/liuyanzhao/Documents/uploads/";
         String rootPath ="/Users/liyaohua/business/ForestBlog/uploads/";
-
         //文件的完整名称,如spring.jpeg
         String filename = file.getOriginalFilename();
         //文件名,如spring

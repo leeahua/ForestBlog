@@ -42,25 +42,36 @@
     <%--主要菜单 satrt--%>
     <div id="menu-box">
         <div id="top-menu">
-                <span class="nav-search">
+               <%-- <span class="nav-search">
                     <i class="fa fa-search"></i>
-                </span>
+                </span>--%>
             <div class="logo-site"><h1 class="site-title">
                 <a href="/" title="${options.optionSiteTitle}">${options.optionSiteTitle}</a>
             </h1>
                 <p class="site-description">${options.optionSiteDescrption}</p>
             </div><!-- .logo-site -->
             <div id="site-nav-wrap">
+
                 <div id="sidr-close">
-                    <a href="#sidr-close" class="toggle-sidr-close">×</a>
+
+                    <a href="#sidr-close" class="toggle-sidr-close">显示菜单</a>
                 </div>
                 <nav id="site-nav" class="main-nav">
                     <a href="#sidr-main" id="navigation-toggle" class="bars">
                         <i class="fa fa-bars"></i>
                     </a>
+
                     <div class="menu-pcmenu-container">
                         <ul id="menu-pcmenu" class="down-menu nav-menu sf-js-enabled sf-arrows">
-
+                            <li>
+                                   <form method="get" id="searchform" action="/search">
+                                        <span>
+                                            <input type="text" value="" class="layui-input" name="query" id="s" placeholder="输入搜索内容"required="">
+                                            <button type="submit" class="layui-btn-mini" id="searchsubmit">搜索</button>
+                                        </span>
+                                    </form>
+                                <div class="clear"></div>
+                            </li>
                             <li>
                                 <a href="/">
                                     <i class="fa-home fa"></i>
@@ -111,7 +122,7 @@
 <%--导航 end start--%>
 
 <%--搜索框 start--%>
-<div id="search-main">
+<%--<div id="search-main">
     <div class="searchbar">
         <form method="get" id="searchform" action="/search">
                 <span>
@@ -121,7 +132,7 @@
         </form>
     </div>
     <div class="clear"></div>
-</div>
+</div>--%>
 <%--搜索框 end--%>
 
 <rapid:block name="breadcrumb"></rapid:block>
