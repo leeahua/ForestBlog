@@ -17,7 +17,7 @@ import java.util.Calendar;
 
 @Controller
 public class UploadFileController {
-    //上传文件
+
     //上传文件
     @RequestMapping(value = "/uploadFile",method = RequestMethod.POST)
     @ResponseBody
@@ -64,7 +64,6 @@ public class UploadFileController {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(0);
         resultVO.setMsg("成功");
-
         UploadFileVO uploadFileVO = new UploadFileVO();
         uploadFileVO.setTitle(filename);
         uploadFileVO.setSrc(fileUrl);

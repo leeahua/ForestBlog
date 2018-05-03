@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liuyanzhao.blog.mapper.custom.MenuMapperCustom" >
+    <resultMap id="MenuMapperCustom" type="com.liuyanzhao.blog.entity.custom.MenuCustom" >
+        <id column="menu_id" property="menuId" jdbcType="INTEGER" />
+        <result column="menu_name" property="menuName" jdbcType="VARCHAR" />
+        <result column="menu_url" property="menuUrl" jdbcType="VARCHAR" />
+        <result column="menu_level" property="menuLevel" jdbcType="INTEGER" />
+        <result column="menu_icon" property="menuIcon" jdbcType="VARCHAR" />
+        <result column="menu_order" property="menuOrder" jdbcType="INTEGER" />
+        <result column="menu_status" property="menuStatus" jdbcType="INTEGER" />
+    </resultMap>
+    <sql id="menu_table_all_columns">
+        menu_id,
+        menu_name,
+        menu_url,
+        menu_icon,
+        menu_level,
+        menu_order,
+        menu_status
+    </sql>
+
+    <!--获得菜单列表-->
+    <select id="listMenu"  resultMap="MenuMapperCustom">
+        SELECT
+        <include refid="menu_table_all_columns"/>
+        FROM `menu`
+        <where>
+            <if test="status!=null">
+                menu_status=#{status}
+            </if>
+        </where>
+        ORDER BY menu_status ASC, menu_order DESC,menu_id ASC
+    </select>
+
+
+</mapper>
+
+

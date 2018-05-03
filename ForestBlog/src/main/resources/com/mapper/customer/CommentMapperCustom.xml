@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liuyanzhao.blog.mapper.custom.CommentMapperCustom" >
+    <resultMap id="CommentCustom" type="com.liuyanzhao.blog.entity.custom.CommentCustom" >
+        <id column="comment_id" property="commentId" jdbcType="INTEGER" />
+        <result column="comment_pid" property="commentPid" jdbcType="INTEGER" />
+        <result column="comment_pname" property="commentPname" jdbcType="VARCHAR" />
+        <result column="comment_article_id" property="commentArticleId" jdbcType="INTEGER" />
+        <result column="comment_author_name" property="commentAuthorName" jdbcType="VARCHAR" />
+        <result column="comment_author_email" property="commentAuthorEmail" jdbcType="VARCHAR" />
+        <result column="comment_author_url" property="commentAuthorUrl" jdbcType="VARCHAR" />
+        <result column="comment_content" property="commentContent" jdbcType="VARCHAR" />
+        <result column="comment_agent" property="commentAgent" jdbcType="VARCHAR" />
+        <result column="comment_ip" property="commentIp" jdbcType="VARCHAR" />
+        <result column="comment_create_time" property="commentCreateTime" jdbcType="TIMESTAMP" />
+        <result column="comment_role" property="commentRole" jdbcType="INTEGER" />
+        <result column="comment_status" property="commentStatus" jdbcType="INTEGER" />
+    </resultMap>
+    <sql id="comment_table_all_columns">
+        comment_id,
+        comment_pid,
+        comment_pname,
+        comment_article_id,
+        comment_author_name,
+        comment_author_email,
+        comment_author_url,
+        comment_content,
+        comment_agent,
+        comment_ip,
+        comment_create_time,
+        comment_role,
+        comment_status
+    </sql>
+
+
+    <select id="listCommentByArticleId"  resultMap="CommentCustom">
+        SELECT
+        <include refid="comment_table_all_columns"/>
+        FROM
+        `comment`
+        <where>
+            comment_article_id=#{id}
+            <if test="status!=null">
+                AND comment_status=#{status}
+            </if>
+        </where>
+        ORDER BY comment_id ASC
+    </select>
+
+    <!--分页获取评论列表-->
+    <select id="listCommentByPage" resultMap="CommentCustom">
+        SELECT
+        <include refid="comment_table_all_columns"/>
+        FROM  `comment`
+        <where>
+            <if test="status!=null">
+                comment_status=#{status}
+            </if>
+        </where>
+        ORDER BY comment_status ASC, comment_id DESC
+        limit #{startPos},#{pageSize}
+    </select>
+
+
+
+    <!--获取评论列表-->
+    <select id="listComment" resultMap="CommentCustom">
+        SELECT
+        <include refid="comment_table_all_columns"/>
+        FROM  `comment`
+        <where>
+            <if test="status!=null">
+               comment_status=#{status}
+            </if>
+        </where>
+        ORDER BY comment_id asc
+    </select>
+
+
+    <!--统计评论数-->
+    <select id="countComment" parameterType="Integer" resultType="Integer">
+        SELECT count(*) FROM `comment`
+        <where>
+            <if test="status!=null">
+                comment_status=#{status}
+            </if>
+        </where>
+    </select>
+
+    <!--获得最近评论-->
+    <select id="listRecentComment" parameterType="Integer" resultMap="CommentCustom">
+        SELECT
+        <include refid="comment_table_all_columns"/>
+        FROM
+        `comment`
+        <where>
+            comment_status=1 AND comment_role=0
+        </where>
+        ORDER BY comment_id DESC
+        LIMIT #{limit}
+    </select>
+
+    <select id="listChildComment" resultType="com.liuyanzhao.blog.entity.Comment">
+        SELECT
+        <include refid="comment_table_all_columns"/>
+        FROM
+        `comment`
+        WHERE
+        comment_pid=#{id}
+    </select>
+
+
+</mapper>

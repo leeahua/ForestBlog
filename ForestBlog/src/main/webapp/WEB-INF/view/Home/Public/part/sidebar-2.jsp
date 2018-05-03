@@ -18,8 +18,8 @@
             <div class="feed-about">
                 <div class="about-main">
                     <div class="about-img">
-                        <img src="${options.optionAboutsiteAvatar}"
-                        alt="QR Code">
+                        <%--<img src="${options.optionAboutsiteAvatar}"--%>
+                            <img src="${options.optionAboutsiteAvatar}" alt="QR Code">
                     </div>
                     <div class="about-name">${options.optionAboutsiteTitle}</div>
                     <div class="about-the">
@@ -32,7 +32,6 @@
                         <a title="微信" id="weixin_btn" rel="external nofollow">
                             <i class="fa fa-weixin"> </i>
                             <div id="weixin_code" class="show" >
-
                                 <img src="${options.optionAboutsiteWechat}" alt="这是干嘛呢">
                             </div>
                         </a>
