@@ -8,7 +8,7 @@
 <%--导航 start--%>
 <header id="masthead" class="site-header">
     <%--顶部菜单 start--%>
-    <nav id="top-header">
+    <%--<nav id="top-header">
         <div class="top-nav">
             <div class="user-login">
                 <c:choose>
@@ -35,7 +35,8 @@
                 </ul>
             </div>
         </div>
-    </nav><!-- #top-header -->
+    </nav>--%>
+        <!-- #top-header -->
     <%--顶部菜单 end--%>
 
     <%--主要菜单 satrt--%>

@@ -67,7 +67,7 @@
                     <div class="single-content">
                             ${articleDetailVo.articleCustom.articleContent}
                     </div>
-                    <div class="s-weixin">
+                    <%--<div class="s-weixin">
                         <ul class="weimg1">
                             <li><strong>微信</strong></li>
                             <li>赶快加我聊天吧</li>
@@ -79,7 +79,7 @@
                             <li><img src="/img/qqGroup.jpg" alt="weinxin"></li>
                         </ul>
                         <div class="clear"></div>
-                    </div>
+                    </div>--%>
                     <div class="clear"></div>
                     <div id="social">
                         <div class="social-main">

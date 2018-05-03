@@ -7,12 +7,14 @@ import com.liuyanzhao.blog.entity.custom.PageCustom;
 import com.liuyanzhao.blog.service.PageService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by 言曌 on 2017/9/7.
  */
+@Service
 public class PageServiceImpl implements PageService{
 	@Autowired
 	private PageMapperCustom pageMapperCustom;

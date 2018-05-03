@@ -15,7 +15,6 @@ import java.util.List;
  * Created by 言曌 on 2017/8/24.
  */
 
-@Repository
 public interface CategoryMapperCustom {
 	//查询分类总数
 	public Integer countCategory(@Param(value="status") Integer status) throws Exception;

@@ -23,7 +23,6 @@
         <property name="url" value="${jdbc_url}" />
         <property name="username" value="${jdbc_user}" />
         <property name="password" value="${jdbc_password}" />
-
         <!-- 配置初始化大小、最小、最大 -->
         <property name="initialSize" value="1" />
         <property name="minIdle" value="1" />
@@ -52,19 +51,33 @@
     </bean>
 
 
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <!--数据库连接池-->
-        <property name="dataSource" ref="dataSource"/>
-        <!--加载mybatis全局配置文件-->
-        <property name="configLocation" value="classpath:mybatis/Configuration.xml"/>
+    <bean id="customerSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations" value="classpath:com/mapper/customer/*.xml" />
     </bean>
 
-    <!--mapper扫描器-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!--如果需要扫描多个包，中间使用半角逗号隔开-->
-        <property name="basePackage" value="com.liuyanzhao.blog.mapper"></property>
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <property name="basePackage" value="com.liuyanzhao.blog.mapper.custom" />
+        <property name="sqlSessionFactoryBeanName" value="customerSqlSessionFactory" />
     </bean>
+
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations" value="classpath:com/mapper/*.xml" />
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.liuyanzhao.blog.mapper" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+    </bean>
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <!-- 事务处理 -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
 
 
 </beans>

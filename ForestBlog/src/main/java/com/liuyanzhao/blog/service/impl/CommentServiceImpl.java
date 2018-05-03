@@ -14,6 +14,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.liuyanzhao.blog.util.Functions;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import java.util.List;
 /**
  * Created by 言曌 on 2017/9/10.
  */
+@Service
 public class CommentServiceImpl implements CommentService{
 	@Autowired
 	private CommentMapperCustom commentMapperCustom;

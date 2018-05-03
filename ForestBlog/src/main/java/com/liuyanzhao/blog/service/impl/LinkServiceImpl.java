@@ -8,12 +8,14 @@ import com.liuyanzhao.blog.service.LinkService;
 import org.apache.xpath.operations.Bool;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by 言曌 on 2017/9/4.
  */
+@Service
 public class LinkServiceImpl implements LinkService {
 	
 	@Autowired

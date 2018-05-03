@@ -21,6 +21,7 @@ public class AdminResourceInterceptor implements WebRequestInterceptor {
      */
     @Override
     public void preHandle(WebRequest request) throws Exception {
+        System.out.println("AdminResourceInterceptor...preHandle");
         User user = (User) httpSession.getAttribute("user");
         User user2 = userService.getUserById(user.getUserId());
         request.setAttribute("loginUser",user2,WebRequest.SCOPE_SESSION);

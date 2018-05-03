@@ -25,7 +25,7 @@ public class UploadFileController {
 
         //本地使用,上传位置
         //String rootPath ="/Users/liuyanzhao/Documents/uploads/";
-        String rootPath ="/www/uploads/";
+        String rootPath ="/Users/liyaohua/business/ForestBlog/uploads/";
 
         //文件的完整名称,如spring.jpeg
         String filename = file.getOriginalFilename();
@@ -59,7 +59,7 @@ public class UploadFileController {
         //将内存中的数据写入磁盘
         file.transferTo(descFile);
         //完整的url
-        String fileUrl =  "/uploads/"+dateDirs+ "/"+newFilename;
+        String fileUrl =  rootPath+dateDirs+ "/"+newFilename;
 
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(0);

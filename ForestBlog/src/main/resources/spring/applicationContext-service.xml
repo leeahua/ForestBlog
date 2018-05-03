@@ -13,37 +13,37 @@
 	http://www.springframework.org/schema/tx
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!-- 用户管理的service -->
+  <!--  &lt;!&ndash; 用户管理的service &ndash;&gt;
     <bean id="userService" class="com.liuyanzhao.blog.service.impl.UserServiceImpl"/>
 
-    <!-- 文章管理的service -->
+    &lt;!&ndash; 文章管理的service &ndash;&gt;
     <bean id="articleService" class="com.liuyanzhao.blog.service.impl.ArticleServiceImpl"/>
 
-    <!-- 分类管理的service -->
+    &lt;!&ndash; 分类管理的service &ndash;&gt;
     <bean id="categoryService" class="com.liuyanzhao.blog.service.impl.CategoryServiceImpl"/>
 
-    <!-- 标签管理的service -->
+    &lt;!&ndash; 标签管理的service &ndash;&gt;
     <bean id="tagService" class="com.liuyanzhao.blog.service.impl.TagServiceImpl"/>
 
-    <!--链接管理的service-->
+    &lt;!&ndash;链接管理的service&ndash;&gt;
     <bean id="linkService" class="com.liuyanzhao.blog.service.impl.LinkServiceImpl"/>
 
-    <!--页面管理的service-->
+    &lt;!&ndash;页面管理的service&ndash;&gt;
     <bean id="pageService" class="com.liuyanzhao.blog.service.impl.PageServiceImpl"/>
 
-    <!--网站信息管理的service-->
+    &lt;!&ndash;网站信息管理的service&ndash;&gt;
     <bean id="optionService" class="com.liuyanzhao.blog.service.impl.OptionsServiceImpl"/>
 
-    <!--评论管理的service-->
+    &lt;!&ndash;评论管理的service&ndash;&gt;
     <bean id="commentService" class="com.liuyanzhao.blog.service.impl.CommentServiceImpl"/>
 
-    <!--评论管理的service-->
+    &lt;!&ndash;评论管理的service&ndash;&gt;
     <bean id="noticeService" class="com.liuyanzhao.blog.service.impl.NoticeServiceImpl"/>
 
-    <!--菜单管理的service-->
+    &lt;!&ndash;菜单管理的service&ndash;&gt;
     <bean id="menuService" class="com.liuyanzhao.blog.service.impl.MenuServiceImpl"/>
 
-
+-->
 
     <!--常用功能-->
     <bean id="functions" class="com.liuyanzhao.blog.util.Functions"/>

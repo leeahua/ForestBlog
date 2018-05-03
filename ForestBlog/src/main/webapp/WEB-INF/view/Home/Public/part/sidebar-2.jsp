@@ -31,8 +31,9 @@
                     <li class="weixin">
                         <a title="微信" id="weixin_btn" rel="external nofollow">
                             <i class="fa fa-weixin"> </i>
-                            <div id="weixin_code" class="hide" >
-                                <img src="${options.optionAboutsiteWechat}" alt="">
+                            <div id="weixin_code" class="show" >
+
+                                <img src="${options.optionAboutsiteWechat}" alt="这是干嘛呢">
                             </div>
                         </a>
                     </li>

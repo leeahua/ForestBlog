@@ -7,10 +7,12 @@ import com.liuyanzhao.blog.mapper.custom.OptionsMapperCustom;
 import com.liuyanzhao.blog.service.OptionsService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by 言曌 on 2017/9/7.
  */
+@Service
 public class OptionsServiceImpl implements OptionsService {
 
 	@Autowired

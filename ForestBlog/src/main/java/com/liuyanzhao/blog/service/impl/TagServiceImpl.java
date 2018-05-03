@@ -15,6 +15,7 @@ import com.liuyanzhao.blog.service.TagService;
 import com.liuyanzhao.blog.util.others.Page;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ import java.util.List;
 /**
  * Created by 言曌 on 2017/9/2.
  */
+@Service
 public class TagServiceImpl implements TagService {
 	@Autowired
 	private TagMapper tagMapper;

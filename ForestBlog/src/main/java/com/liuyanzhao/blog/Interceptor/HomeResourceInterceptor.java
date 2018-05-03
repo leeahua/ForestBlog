@@ -71,7 +71,6 @@ public class HomeResourceInterceptor implements WebRequestInterceptor {
 		//最后更新的文章
         ArticleCustom lastUpdateArticle = articleService.getLastUpdateArticle();
         request.setAttribute("lastUpdateArticle",lastUpdateArticle,WebRequest.SCOPE_REQUEST);
-
         //页脚显示
 		//博客基本信息显示(Options)
 		Options options = optionsService.getOptions();
