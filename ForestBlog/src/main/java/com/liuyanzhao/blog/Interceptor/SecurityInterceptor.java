@@ -11,7 +11,8 @@ public class SecurityInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
-        System.out.println("SecurityInterceptor...preHandle...");
+        //TODO 改进拦截实现机制
+        System.out.println("通过拦截器实现权限，这中方式不好，需要改");
         //这里可以根据session的用户来判断角色的权限，根据权限来转发不同的页面
         if(request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");

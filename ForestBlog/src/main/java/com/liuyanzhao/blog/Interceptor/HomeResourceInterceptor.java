@@ -36,6 +36,7 @@ public class HomeResourceInterceptor implements WebRequestInterceptor {
      */
     @Override
     public void preHandle(WebRequest request) throws Exception {
+        //TODO 每次访问都需要进行大量的查询 需要改
         System.out.println("HomeResourceInterceptor...preHandle......");
      //导航主要菜单显示
         //分类目录显示
