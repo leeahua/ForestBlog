@@ -66,14 +66,14 @@
             <mvc:mapping path="/admin/**"/>
             <bean class="com.liuyanzhao.blog.Interceptor.SecurityInterceptor"/>
         </mvc:interceptor>
-        <mvc:interceptor>
+       <!-- <mvc:interceptor>
             <mvc:mapping path="/admin"/>
             <bean class="com.liuyanzhao.blog.Interceptor.AdminResourceInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/admin/**"/>
             <bean class="com.liuyanzhao.blog.Interceptor.AdminResourceInterceptor"/>
-        </mvc:interceptor>
+        </mvc:interceptor>-->
 
     </mvc:interceptors>
 </beans>

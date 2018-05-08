@@ -10,7 +10,7 @@
      style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
 
     <%--关于本站 start--%>
-    <aside class="widget about">
+   <%-- <aside class="widget about">
         <h3 class="widget-title">
             <i class="fa fa-bars"></i>关于本站
         </h3>
@@ -18,7 +18,7 @@
             <div class="feed-about">
                 <div class="about-main">
                     <div class="about-img">
-                        <%--<img src="${options.optionAboutsiteAvatar}"--%>
+                        &lt;%&ndash;<img src="${options.optionAboutsiteAvatar}"&ndash;%&gt;
                             <img src="${options.optionAboutsiteAvatar}" alt="QR Code">
                     </div>
                     <div class="about-name">${options.optionAboutsiteTitle}</div>
@@ -64,11 +64,11 @@
             </div>
         </div>
         <div class="clear"></div>
-    </aside>
+    </aside>--%>
     <%--关于本站 start--%>
 
     <%--网站概况 start--%>
-    <aside id="php_text-22" class="widget php_text">
+   <%-- <aside id="php_text-22" class="widget php_text">
         <h3 class="widget-title">
             <i class="fa fa-bars"></i>网站概况
         </h3>
@@ -89,7 +89,7 @@
             </ul>
         </div>
         <div class="clear"></div>
-    </aside>
+    </aside>--%>
     <%--网站概况 end--%>
 
     <%--热评文章 start--%>
