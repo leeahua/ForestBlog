@@ -66,8 +66,8 @@
                             <li>
                                    <form method="get" id="searchform" action="/search">
                                         <span>
-                                            <input type="text" value="" class="layui-input" name="query" id="s" placeholder="输入搜索内容"required="">
-                                            <button type="submit" class="layui-btn-mini" id="searchsubmit">搜索</button>
+                                            <input type="text" value="" class="" name="query" id="s" placeholder="输入搜索内容"required="">
+                                            <button type="submit" class="" id="searchsubmit">搜索</button>
                                         </span>
                                     </form>
                                 <div class="clear"></div>

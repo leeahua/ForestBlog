@@ -1,6 +1,8 @@
 package com.liuyanzhao.blog.entity;
 
-public class Menu {
+import java.io.Serializable;
+
+public class Menu implements Serializable {
     private Integer menuId;
 
     private String menuName;

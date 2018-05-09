@@ -2,13 +2,19 @@ package com.liuyanzhao.blog.Interceptor;
 import com.liuyanzhao.blog.entity.Options;
 import com.liuyanzhao.blog.entity.custom.*;
 import com.liuyanzhao.blog.service.*;
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.ListOperations;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.context.request.WebRequestInterceptor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class HomeResourceInterceptor implements WebRequestInterceptor {
     @Autowired
@@ -31,24 +37,55 @@ public class HomeResourceInterceptor implements WebRequestInterceptor {
 
     @Autowired
     private CommentService commentService;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    private static final Logger log = LoggerFactory.getLogger(HomeResourceInterceptor.class);
     /**
      * 在请求处理之前执行，该方法主要是用于准备资源数据的，然后可以把它们当做请求属性放到WebRequest中
      */
     @Override
     public void preHandle(WebRequest request) throws Exception {
-        //TODO 每次访问都需要进行大量的查询 需要改
         System.out.println("HomeResourceInterceptor...preHandle......");
         //导航主要菜单显示
-        //分类目录显示
-        List<CategoryCustom> categoryList = categoryService.listCategory(1);
+        List<CategoryCustom> categoryList;
+        if(redisTemplate.hasKey("categoryList")){
+            categoryList = (List<CategoryCustom>)redisTemplate.opsForList().leftPop("categoryList");
+            log.info("categoryList:{}", JSONObject.valueToString(categoryList));
+        }else{
+            //分类目录显示
+            categoryList = categoryService.listCategory(1);
+            redisTemplate.opsForList().leftPush("categoryList",categoryList);
+            redisTemplate.expire("categoryList",60*10,TimeUnit.SECONDS);
+        }
+        //categoryList = categoryService.listCategory(1);
+
         request.setAttribute("categoryList",categoryList,WebRequest.SCOPE_REQUEST);
         //菜单显示
-        List<MenuCustom> menuCustomList = menuService.listMenu(1);
-        request.setAttribute("menuCustomList",menuCustomList,WebRequest.SCOPE_REQUEST);
+       /* List<MenuCustom> menuCustomList ;
+        if(redisTemplate.hasKey("menuCustomList")){
+            menuCustomList = (List<MenuCustom>)redisTemplate.opsForList().leftPop("menuCustomList");
+
+        }else{
+            //分类目录显示
+            menuCustomList = menuService.listMenu(1);
+            redisTemplate.opsForList().leftPush("menuCustomList",menuCustomList);
+            redisTemplate.expire("menuCustomList",60*10,TimeUnit.SECONDS);
+        }
+        log.info("menuList:{}",JSONObject.valueToString(menuCustomList));
+        request.setAttribute("menuCustomList",menuCustomList,WebRequest.SCOPE_REQUEST);*/
 
         //侧边栏显示
         //标签列表显示
-		List<TagCustom> tagList = tagService.listTag(1);
+		List<TagCustom> tagList;
+		if(redisTemplate.hasKey("tagList")){
+		    tagList = (List<TagCustom>)redisTemplate.opsForList().leftPop("tagList");
+        }else{
+            tagList = tagService.listTag(1);
+            redisTemplate.opsForList().leftPush("tagList",tagList);
+            redisTemplate.expire("tagList",60*10,TimeUnit.SECONDS);
+        }
 		request.setAttribute("tagList",tagList,WebRequest.SCOPE_REQUEST);
 		//获得随机文章
 		List<ArticleCustom> randomArticleList = articleService.listRandomArticle(1,8);

@@ -1,6 +1,8 @@
 package com.liuyanzhao.blog.entity;
 
-public class Category {
+import java.io.Serializable;
+
+public class Category  {
     private Integer categoryId;
 
     private Integer categoryPid;

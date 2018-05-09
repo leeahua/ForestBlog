@@ -56,6 +56,8 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/static/**" />
+            <mvc:exclude-mapping path="/uploads/**" />
             <bean class="com.liuyanzhao.blog.Interceptor.HomeResourceInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
