@@ -33,12 +33,12 @@
                     <article  class="post type-post">
 
                         <figure class="thumbnail">
-                            <a href="/article/${a.articleCustom.articleId}">
+                          <%--  <a href="/article/${a.articleCustom.articleId}">
                                 <img width="280" height="100"
                                      src="/img/thumbnail/random/img_${a.articleCustom.articleId%400}.jpg"
                                      class="attachment-content size-content wp-post-image"
                                      alt="${a.articleCustom.articleTitle}">
-                            </a>
+                            </a>--%>
                             <span class="cat">
                                 <a href="/category/${a.categoryCustomList[a.categoryCustomList.size()-1].categoryId}">
                                         ${a.categoryCustomList[a.categoryCustomList.size()-1].categoryName}
@@ -56,8 +56,32 @@
                         </header>
 
                         <div class="entry-content">
-                            <div class="archive-content">
+                            <div class="archive-content" >
                                 <lyz:htmlFilter>${a.articleCustom.articleContent}</lyz:htmlFilter>......
+                                </br></br>
+
+                                <span class="date">
+                                        <fmt:formatDate value="${a.articleCustom.articlePostTime}" pattern="yyyy年MM月dd日"/>
+                                    &nbsp;&nbsp;
+                                    </span>
+                                <span class="views">
+                                        <i class="fa fa-eye"></i>
+                                            ${a.articleCustom.articleViewCount} views
+                                    </span>
+                                <span class="comment">&nbsp;&nbsp;
+                                        <a href="/article/${a.articleCustom.articleId}#comments" rel="external nofollow">
+                                          <i class="fa fa-comment-o"></i>
+                                            <c:choose>
+                                                <c:when test="${a.articleCustom.articleCommentCount==0}">
+                                                    发表评论
+                                                </c:when>
+                                                <c:otherwise>
+                                                    ${a.articleCustom.articleCommentCount}
+                                                </c:otherwise>
+                                            </c:choose>
+
+                                        </a>
+                                    </span>
                             </div>
                             <span class="title-l"></span>
                             <span class="new-icon">
@@ -77,30 +101,7 @@
 
 
                                 </span>
-                            <span class="entry-meta">
-                                    <span class="date">
-                                        <fmt:formatDate value="${a.articleCustom.articlePostTime}" pattern="yyyy年MM月dd日"/>
-                                    &nbsp;&nbsp;
-                                    </span>
-                                    <span class="views">
-                                        <i class="fa fa-eye"></i>
-                                            ${a.articleCustom.articleViewCount} views
-                                    </span>
-                                    <span class="comment">&nbsp;&nbsp;
-                                        <a href="/article/${a.articleCustom.articleId}#comments" rel="external nofollow">
-                                          <i class="fa fa-comment-o"></i>
-                                            <c:choose>
-                                                <c:when test="${a.articleCustom.articleCommentCount==0}">
-                                                    发表评论
-                                                </c:when>
-                                                <c:otherwise>
-                                                    ${a.articleCustom.articleCommentCount}
-                                                </c:otherwise>
-                                            </c:choose>
 
-                                        </a>
-                                    </span>
-                                </span>
                             <div class="clear"></div>
                         </div><!-- .entry-content -->
 

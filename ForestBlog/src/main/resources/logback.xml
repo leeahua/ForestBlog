@@ -10,9 +10,9 @@
     </appender>
 
     <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${catalina.base}/logs/blog.log</file>
+        <file>/logs/blog.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${catalina.base}/logs/blog.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>/logs/blog.%d{yyyy-MM-dd}.log</fileNamePattern>
         </rollingPolicy>
         <encoder charset="UTF-8">
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{80}[%L] - %msg%n</pattern>

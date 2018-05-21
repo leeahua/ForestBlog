@@ -60,13 +60,13 @@
                                         <article class="post">
 
                                             <figure class="thumbnail">
-                                                <a href="/article/${a.articleCustom.articleId}">
+                                                <%--<a href="/article/${a.articleCustom.articleId}">
                                                     <img width="280" height="210"
                                                          src="/img/thumbnail/random/img_${a.articleCustom.articleId%400}.jpg"
                                                          class="attachment-content size-content wp-post-image"
                                                          alt="${a.articleCustom.articleTitle}">
                                                 </a>
-                                                <span class="cat">
+                                                <span class="cat">--%>
                                             <a href="/category/${a.categoryCustomList[a.categoryCustomList.size()-1].categoryId}">
                                                     ${a.categoryCustomList[a.categoryCustomList.size()-1].categoryName}
                                             </a>
@@ -85,49 +85,50 @@
                                             <div class="entry-content">
                                                 <div class="archive-content">
                                                     <lyz:htmlFilter>${a.articleCustom.articleContent}</lyz:htmlFilter>......
+                                                    <br>
+                                                    <br>
+                                                    <span class="date">
+                                                            <fmt:formatDate value="${a.articleCustom.articlePostTime}" pattern="yyyy年MM月dd日"/>
+                                                        &nbsp;&nbsp;
+                                                    </span>
+                                                    <span class="views">
+                                                        <i class="fa fa-eye"></i>
+                                                            ${a.articleCustom.articleViewCount} views
+                                                    </span>
+                                                    <span class="comment">&nbsp;&nbsp;
+                                                        <a href="/article/${a.articleCustom.articleId}#comments"
+                                                           rel="external nofollow">
+                                                          <i class="fa fa-comment-o"></i>
+                                                            <c:choose>
+                                                                <c:when test="${a.articleCustom.articleCommentCount==0}">
+                                                                    发表评论
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    ${a.articleCustom.articleCommentCount}
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                     </span>
                                                 </div>
                                                 <span class="title-l"></span>
                                                 <span class="new-icon">
-                                    <c:choose>
-                                        <c:when test="${a.articleCustom.articleStatus==2}">
-                                            <i class="fa fa-bookmark-o"></i>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <jsp:useBean id="nowDate" class="java.util.Date"/> <%--当前时间--%>
-                                            <c:set var="interval"
-                                                   value="${nowDate.time - a.articleCustom.articlePostTime.time}"/><%--时间差毫秒数--%>
-                                            <fmt:formatNumber value="${interval/1000/60/60/24}" pattern="#0"
-                                                              var="days"/><%--取天数整数--%>
-                                            <c:if test="${days <= 7}">NEW</c:if>
-                                        </c:otherwise>
-                                    </c:choose>
+                                                    <c:choose>
+                                                        <c:when test="${a.articleCustom.articleStatus==2}">
+                                                            <i class="fa fa-bookmark-o"></i>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <jsp:useBean id="nowDate" class="java.util.Date"/> <%--当前时间--%>
+                                                            <c:set var="interval"
+                                                                   value="${nowDate.time - a.articleCustom.articlePostTime.time}"/><%--时间差毫秒数--%>
+                                                            <fmt:formatNumber value="${interval/1000/60/60/24}" pattern="#0"
+                                                                              var="days"/><%--取天数整数--%>
+                                                            <c:if test="${days <= 7}">NEW</c:if>
+                                                        </c:otherwise>
+                                                    </c:choose>
 
 
-                                </span>
-                                                <span class="entry-meta">
-                                    <span class="date">
-                                        <fmt:formatDate value="${a.articleCustom.articlePostTime}" pattern="yyyy年MM月dd日"/>
-                                    &nbsp;&nbsp;
-                                    </span>
-                                    <span class="views">
-                                        <i class="fa fa-eye"></i>
-                                            ${a.articleCustom.articleViewCount} views
-                                    </span>
-                                    <span class="comment">&nbsp;&nbsp;
-                                        <a href="/article/${a.articleCustom.articleId}#comments"
-                                           rel="external nofollow">
-                                          <i class="fa fa-comment-o"></i>
-                                            <c:choose>
-                                                <c:when test="${a.articleCustom.articleCommentCount==0}">
-                                                    发表评论
-                                                </c:when>
-                                                <c:otherwise>
-                                                    ${a.articleCustom.articleCommentCount}
-                                                </c:otherwise>
-                                            </c:choose>
-                                        </a>
-                                    </span>
-                                </span>
+                                                </span>
+
                                                 <div class="clear"></div>
                                             </div><!-- .entry-content -->
 
