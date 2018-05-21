@@ -1,4 +1,5 @@
 package com.liuyanzhao.blog.Interceptor;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.liuyanzhao.blog.entity.Options;
 import com.liuyanzhao.blog.entity.custom.*;
 import com.liuyanzhao.blog.service.*;
@@ -51,8 +52,8 @@ public class HomeResourceInterceptor implements WebRequestInterceptor {
         //导航主要菜单显示
         List<CategoryCustom> categoryList;
         if(redisTemplate.hasKey("categoryList")){
-            categoryList = (List<CategoryCustom>)redisTemplate.opsForList().leftPop("categoryList");
-            log.info("categoryList:{}", JSONObject.valueToString(categoryList));
+            categoryList = (List<CategoryCustom>)redisTemplate.opsForList().range("categoryList",0,100).get(0);
+             log.info("categoryList:{}", JSONObject.valueToString(categoryList));
         }else{
             //分类目录显示
             categoryList = categoryService.listCategory(1);
@@ -80,7 +81,7 @@ public class HomeResourceInterceptor implements WebRequestInterceptor {
         //标签列表显示
 		List<TagCustom> tagList;
 		if(redisTemplate.hasKey("tagList")){
-		    tagList = (List<TagCustom>)redisTemplate.opsForList().leftPop("tagList");
+            tagList  = (List<TagCustom>)redisTemplate.opsForList().range("tagList",0,-1).get(0);
         }else{
             tagList = tagService.listTag(1);
             redisTemplate.opsForList().leftPush("tagList",tagList);
