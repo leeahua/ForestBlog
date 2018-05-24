@@ -1,6 +1,9 @@
 package com.liuyanzhao.blog.entity;
 
-public class Tag {
+import java.io.Serializable;
+
+public class Tag implements Serializable{
+    private static final long serialVersionUID = -8389331679163120732L;
     private Integer tagId;
 
     private String tagName;

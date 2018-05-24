@@ -17,8 +17,7 @@
 
     <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
         <property name="maxIdle" value="${redis.maxIdle}" />
-        <property name="maxActive" value="${redis.maxActive}" />
-        <property name="maxWait" value="${redis.maxWait}" />
+        <property name="maxWaitMillis" value="${redis.maxWait}" />
         <property name="testOnBorrow" value="${redis.testOnBorrow}" />
     </bean>
 
@@ -36,6 +35,10 @@
         <property name="valueSerializer">
             <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
         </property>
+    </bean>
+
+    <bean id="redisUtil" class="com.liuyanzhao.blog.util.RedisUtil">
+        <property name="redisTemplate" ref="redisTemplate"></property>
     </bean>
 
 </beans>

@@ -52,12 +52,12 @@ public class HomeResourceInterceptor implements WebRequestInterceptor {
         //导航主要菜单显示
         List<CategoryCustom> categoryList;
         if(redisTemplate.hasKey("categoryList")){
-            categoryList = (List<CategoryCustom>)redisTemplate.opsForList().range("categoryList",0,100).get(0);
+            categoryList = (List<CategoryCustom>)redisTemplate.opsForList().range("categoryList",0,-1);
              log.info("categoryList:{}", JSONObject.valueToString(categoryList));
         }else{
             //分类目录显示
             categoryList = categoryService.listCategory(1);
-            redisTemplate.opsForList().leftPush("categoryList",categoryList);
+            redisTemplate.opsForList().rightPushAll("categoryList",categoryList);
             redisTemplate.expire("categoryList",60*10,TimeUnit.SECONDS);
         }
         //categoryList = categoryService.listCategory(1);
@@ -81,10 +81,10 @@ public class HomeResourceInterceptor implements WebRequestInterceptor {
         //标签列表显示
 		List<TagCustom> tagList;
 		if(redisTemplate.hasKey("tagList")){
-            tagList  = (List<TagCustom>)redisTemplate.opsForList().range("tagList",0,-1).get(0);
+            tagList  = (List<TagCustom>)redisTemplate.opsForList().range("tagList",0,-1);
         }else{
             tagList = tagService.listTag(1);
-            redisTemplate.opsForList().leftPush("tagList",tagList);
+            redisTemplate.opsForList().rightPushAll("tagList",tagList);
             redisTemplate.expire("tagList",60*10,TimeUnit.SECONDS);
         }
 		request.setAttribute("tagList",tagList,WebRequest.SCOPE_REQUEST);

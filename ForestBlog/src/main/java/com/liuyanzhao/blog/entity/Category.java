@@ -2,7 +2,8 @@ package com.liuyanzhao.blog.entity;
 
 import java.io.Serializable;
 
-public class Category  {
+public class Category  implements Serializable{
+    private static final long serialVersionUID = 6687286913317513141L;
     private Integer categoryId;
 
     private Integer categoryPid;
