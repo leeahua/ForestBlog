@@ -27,14 +27,10 @@ public class HomeResourceInterceptor implements WebRequestInterceptor {
     @Autowired
     private TagService tagService;
 
-    @Autowired
-    private LinkService linkService;
 
     @Autowired
     private OptionsService optionsService;
 
-    @Autowired
-    private MenuService menuService;
 
     @Autowired
     private CommentService commentService;
