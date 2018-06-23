@@ -1,0 +1,36 @@
+package com.smile.blog.entity.custom;
+
+import com.smile.blog.entity.Category;
+
+import java.io.Serializable;
+
+
+/**
+ * 文章分类目录的信息的扩展
+ * Created by 言曌 on 2017/8/24.
+ */
+public class CategoryCustom extends Category implements Serializable {
+    private static final long serialVersionUID = 6174677592195982591L;
+    //分类对应的文章数
+    private Integer articleCount;
+
+    //分类的父分类名称
+    private String categoryPname;
+
+
+    public Integer getArticleCount() {
+        return articleCount;
+    }
+
+    public void setArticleCount(Integer articleCount) {
+        this.articleCount = articleCount;
+    }
+
+    public String getCategoryPname() {
+        return categoryPname;
+    }
+
+    public void setCategoryPname(String categoryPname) {
+        this.categoryPname = categoryPname;
+    }
+}
