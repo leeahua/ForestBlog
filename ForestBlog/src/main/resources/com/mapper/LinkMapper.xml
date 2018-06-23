@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liuyanzhao.blog.mapper.LinkMapper" >
-  <resultMap id="BaseResultMap" type="com.liuyanzhao.blog.entity.Link" >
+<mapper namespace="com.smile.blog.mapper.LinkMapper" >
+  <resultMap id="BaseResultMap" type="com.smile.blog.entity.Link" >
     <id column="link_id" property="linkId" jdbcType="INTEGER" />
     <result column="link_url" property="linkUrl" jdbcType="VARCHAR" />
     <result column="link_name" property="linkName" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
     delete from link
     where link_id = #{linkId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.liuyanzhao.blog.entity.Link" >
+  <insert id="insert" parameterType="com.smile.blog.entity.Link" >
     insert into link (link_id, link_url, link_name, 
       link_image, link_description, link_owner_nickname, 
       link_owner_contact, link_update_time, link_create_time, 
@@ -38,7 +38,7 @@
       #{linkOwnerContact,jdbcType=VARCHAR}, #{linkUpdateTime,jdbcType=TIMESTAMP}, #{linkCreateTime,jdbcType=TIMESTAMP}, 
       #{linkOrder,jdbcType=INTEGER}, #{linkStatus,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.liuyanzhao.blog.entity.Link" >
+  <insert id="insertSelective" parameterType="com.smile.blog.entity.Link" >
     insert into link
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="linkId != null" >
@@ -111,7 +111,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liuyanzhao.blog.entity.Link" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.smile.blog.entity.Link" >
     update link
     <set >
       <if test="linkUrl != null" >
@@ -147,7 +147,7 @@
     </set>
     where link_id = #{linkId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.liuyanzhao.blog.entity.Link" >
+  <update id="updateByPrimaryKey" parameterType="com.smile.blog.entity.Link" >
     update link
     set link_url = #{linkUrl,jdbcType=VARCHAR},
       link_name = #{linkName,jdbcType=VARCHAR},

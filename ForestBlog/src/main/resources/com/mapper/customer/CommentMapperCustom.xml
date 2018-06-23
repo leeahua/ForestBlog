@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liuyanzhao.blog.mapper.custom.CommentMapperCustom" >
-    <resultMap id="CommentCustom" type="com.liuyanzhao.blog.entity.custom.CommentCustom" >
+<mapper namespace="com.smile.blog.mapper.custom.CommentMapperCustom" >
+    <resultMap id="CommentCustom" type="com.smile.blog.entity.custom.CommentCustom" >
         <id column="comment_id" property="commentId" jdbcType="INTEGER" />
         <result column="comment_pid" property="commentPid" jdbcType="INTEGER" />
         <result column="comment_pname" property="commentPname" jdbcType="VARCHAR" />
@@ -100,7 +100,7 @@
         LIMIT #{limit}
     </select>
 
-    <select id="listChildComment" resultType="com.liuyanzhao.blog.entity.Comment">
+    <select id="listChildComment" resultType="com.smile.blog.entity.Comment">
         SELECT
         <include refid="comment_table_all_columns"/>
         FROM

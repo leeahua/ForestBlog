@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liuyanzhao.blog.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.liuyanzhao.blog.entity.User" >
+<mapper namespace="com.smile.blog.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.smile.blog.entity.User" >
     <id column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="user_pass" property="userPass" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
     delete from user
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.liuyanzhao.blog.entity.User" >
+  <insert id="insert" parameterType="com.smile.blog.entity.User" >
     insert into user (user_id, user_name, user_pass, 
       user_nickname, user_email, user_url, 
       user_avatar, user_last_login_ip, user_register_time, 
@@ -38,7 +38,7 @@
       #{userAvatar,jdbcType=VARCHAR}, #{userLastLoginIp,jdbcType=VARCHAR}, #{userRegisterTime,jdbcType=TIMESTAMP}, 
       #{userLastLoginTime,jdbcType=TIMESTAMP}, #{userStatus,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.liuyanzhao.blog.entity.User" >
+  <insert id="insertSelective" parameterType="com.smile.blog.entity.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
@@ -111,7 +111,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liuyanzhao.blog.entity.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.smile.blog.entity.User" >
     update user
     <set >
       <if test="userName != null" >
@@ -147,7 +147,7 @@
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.liuyanzhao.blog.entity.User" >
+  <update id="updateByPrimaryKey" parameterType="com.smile.blog.entity.User" >
     update user
     set user_name = #{userName,jdbcType=VARCHAR},
       user_pass = #{userPass,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liuyanzhao.blog.mapper.CategoryMapper" >
-  <resultMap id="BaseResultMap" type="com.liuyanzhao.blog.entity.Category" >
+<mapper namespace="com.smile.blog.mapper.CategoryMapper" >
+  <resultMap id="BaseResultMap" type="com.smile.blog.entity.Category" >
     <id column="category_id" property="categoryId" jdbcType="INTEGER" />
     <result column="category_pid" property="categoryPid" jdbcType="INTEGER" />
     <result column="category_name" property="categoryName" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     delete from category
     where category_id = #{categoryId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.liuyanzhao.blog.entity.Category" >
+  <insert id="insert" parameterType="com.smile.blog.entity.Category" >
     insert into category (category_id, category_pid, category_name, 
       category_description, category_order, category_icon, 
       category_status)
@@ -32,7 +32,7 @@
       #{categoryDescription,jdbcType=VARCHAR}, #{categoryOrder,jdbcType=INTEGER}, #{categoryIcon,jdbcType=VARCHAR}, 
       #{categoryStatus,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.liuyanzhao.blog.entity.Category" >
+  <insert id="insertSelective" parameterType="com.smile.blog.entity.Category" >
     insert into category
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="categoryId != null" >
@@ -81,7 +81,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liuyanzhao.blog.entity.Category" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.smile.blog.entity.Category" >
     update category
     <set >
       <if test="categoryPid != null" >
@@ -105,7 +105,7 @@
     </set>
     where category_id = #{categoryId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.liuyanzhao.blog.entity.Category" >
+  <update id="updateByPrimaryKey" parameterType="com.smile.blog.entity.Category" >
     update category
     set category_pid = #{categoryPid,jdbcType=INTEGER},
       category_name = #{categoryName,jdbcType=VARCHAR},

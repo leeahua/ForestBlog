@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liuyanzhao.blog.mapper.OptionsMapper" >
-  <resultMap id="BaseResultMap" type="com.liuyanzhao.blog.entity.Options" >
+<mapper namespace="com.smile.blog.mapper.OptionsMapper" >
+  <resultMap id="BaseResultMap" type="com.smile.blog.entity.Options" >
     <id column="option_id" property="optionId" jdbcType="INTEGER" />
     <result column="option_site_title" property="optionSiteTitle" jdbcType="VARCHAR" />
     <result column="option_site_descrption" property="optionSiteDescrption" jdbcType="VARCHAR" />
@@ -33,7 +33,7 @@
     delete from options
     where option_id = #{optionId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.liuyanzhao.blog.entity.Options" >
+  <insert id="insert" parameterType="com.smile.blog.entity.Options" >
     insert into options (option_id, option_site_title, option_site_descrption, 
       option_meta_descrption, option_meta_keyword, 
       option_aboutsite_avatar, option_aboutsite_title, 
@@ -49,7 +49,7 @@
       #{optionAboutsiteWeibo,jdbcType=VARCHAR}, #{optionTongji,jdbcType=VARCHAR}, #{optionStatus,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.liuyanzhao.blog.entity.Options" >
+  <insert id="insertSelective" parameterType="com.smile.blog.entity.Options" >
     insert into options
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="optionId != null" >
@@ -140,7 +140,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liuyanzhao.blog.entity.Options" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.smile.blog.entity.Options" >
     update options
     <set >
       <if test="optionSiteTitle != null" >
@@ -185,7 +185,7 @@
     </set>
     where option_id = #{optionId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.liuyanzhao.blog.entity.Options" >
+  <update id="updateByPrimaryKey" parameterType="com.smile.blog.entity.Options" >
     update options
     set option_site_title = #{optionSiteTitle,jdbcType=VARCHAR},
       option_site_descrption = #{optionSiteDescrption,jdbcType=VARCHAR},

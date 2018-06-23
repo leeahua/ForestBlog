@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liuyanzhao.blog.mapper.custom.TagMapperCustom" >
+<mapper namespace="com.smile.blog.mapper.custom.TagMapperCustom" >
 
-    <resultMap id="TagCustom" type="com.liuyanzhao.blog.entity.custom.TagCustom">
+    <resultMap id="TagCustom" type="com.smile.blog.entity.custom.TagCustom">
         <id column="tag_id" property="tagId" jdbcType="INTEGER" />
         <result column="tag_name" property="tagName" jdbcType="VARCHAR" />
         <result column="tag_description" property="tagDescription" jdbcType="VARCHAR" />
@@ -29,7 +29,7 @@
     </select>
 
 
-   <select id="listArticleWithTagByPage" resultMap="com.liuyanzhao.blog.mapper.custom.ArticleMapperCustom.ArticleMapperCustom">
+   <select id="listArticleWithTagByPage" resultMap="com.smile.blog.mapper.custom.ArticleMapperCustom.ArticleMapperCustom">
         SELECT
        article_id, article_user_id, article_title, article_parent_category_id, article_child_category_id,
        article_tag_ids, article_view_count, article_comment_count, article_like_count, article_post_time,
@@ -59,7 +59,7 @@
     </select>
 
     <!--根据标签名获取标签-->
-    <select id="getTagByName" parameterType="String" resultType="com.liuyanzhao.blog.entity.Tag">
+    <select id="getTagByName" parameterType="String" resultType="com.smile.blog.entity.Tag">
         SELECT
         <include refid="tag_table_all_columns"/>
         FROM

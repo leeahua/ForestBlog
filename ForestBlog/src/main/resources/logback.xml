@@ -20,7 +20,7 @@
     </appender>
 
     <!-- project default level -->
-    <logger name="com.liuyanzhao.blog" level="INFO" />
+    <logger name="com.smile.blog" level="INFO" />
 
     <!-- root -->
     <!-- root's level is set to DEBUG by default -->

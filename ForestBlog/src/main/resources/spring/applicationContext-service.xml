@@ -16,7 +16,7 @@
 
 
     <!--常用功能-->
-    <bean id="functions" class="com.liuyanzhao.blog.util.Functions"/>
+    <bean id="functions" class="com.smile.blog.util.Functions"/>
 
 
 </beans>

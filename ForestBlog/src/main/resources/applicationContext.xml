@@ -13,7 +13,7 @@
 
 	<import resource="spring/applicationContext-*.xml" />
 
-	<context:component-scan base-package="com.liuyanzhao.blog" />
+	<context:component-scan base-package="com.smile.blog" />
 	
 	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean" />
 </beans>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liuyanzhao.blog.mapper.custom.CategoryMapperCustom" >
-    <resultMap id="BaseResultMap" type="com.liuyanzhao.blog.entity.custom.CategoryCustom" >
+<mapper namespace="com.smile.blog.mapper.custom.CategoryMapperCustom" >
+    <resultMap id="BaseResultMap" type="com.smile.blog.entity.custom.CategoryCustom" >
         <id column="category_id" property="categoryId" jdbcType="INTEGER" />
         <result column="category_pid" property="categoryPid" jdbcType="INTEGER" />
         <result column="category_name" property="categoryName" jdbcType="VARCHAR" />
@@ -52,7 +52,7 @@
 
 
     <!--获得含有该分类的文章列表-->
-    <select id="listArticleWithCategoryByPage" resultMap="com.liuyanzhao.blog.mapper.custom.ArticleMapperCustom.ArticleMapperCustom">
+    <select id="listArticleWithCategoryByPage" resultMap="com.smile.blog.mapper.custom.ArticleMapperCustom.ArticleMapperCustom">
         SELECT * FROM `article`
         <where>
             <if test="status!=null">
@@ -87,7 +87,7 @@
     <!--根据分类名查找分类-->
 
     <!--根据标签名获取标签-->
-    <select id="getCategoryByName" parameterType="String" resultType="com.liuyanzhao.blog.entity.Category">
+    <select id="getCategoryByName" parameterType="String" resultType="com.smile.blog.entity.Category">
         SELECT
         <include refid="category_table_all_column"/>
         FROM

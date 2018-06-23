@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liuyanzhao.blog.mapper.CommentMapper" >
-  <resultMap id="BaseResultMap" type="com.liuyanzhao.blog.entity.Comment" >
+<mapper namespace="com.smile.blog.mapper.CommentMapper" >
+  <resultMap id="BaseResultMap" type="com.smile.blog.entity.Comment" >
     <id column="comment_id" property="commentId" jdbcType="INTEGER" />
     <result column="comment_pid" property="commentPid" jdbcType="INTEGER" />
     <result column="comment_pname" property="commentPname" jdbcType="VARCHAR" />
@@ -31,7 +31,7 @@
     delete from comment
     where comment_id = #{commentId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.liuyanzhao.blog.entity.Comment" >
+  <insert id="insert" parameterType="com.smile.blog.entity.Comment" >
     insert into comment (comment_id, comment_pid, comment_pname, 
       comment_article_id, comment_author_name, comment_author_email, 
       comment_author_url, comment_content, comment_agent, 
@@ -43,7 +43,7 @@
       #{commentIp,jdbcType=VARCHAR}, #{commentCreateTime,jdbcType=TIMESTAMP}, #{commentRole,jdbcType=INTEGER}, 
       #{commentStatus,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.liuyanzhao.blog.entity.Comment" >
+  <insert id="insertSelective" parameterType="com.smile.blog.entity.Comment" >
     insert into comment
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="commentId != null" >
@@ -128,7 +128,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liuyanzhao.blog.entity.Comment" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.smile.blog.entity.Comment" >
     update comment
     <set >
       <if test="commentPid != null" >
@@ -170,7 +170,7 @@
     </set>
     where comment_id = #{commentId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.liuyanzhao.blog.entity.Comment" >
+  <update id="updateByPrimaryKey" parameterType="com.smile.blog.entity.Comment" >
     update comment
     set comment_pid = #{commentPid,jdbcType=INTEGER},
       comment_pname = #{commentPname,jdbcType=VARCHAR},

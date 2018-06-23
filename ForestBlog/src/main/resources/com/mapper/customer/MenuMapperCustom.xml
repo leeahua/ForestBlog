@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liuyanzhao.blog.mapper.custom.MenuMapperCustom" >
-    <resultMap id="MenuMapperCustom" type="com.liuyanzhao.blog.entity.custom.MenuCustom" >
+<mapper namespace="com.smile.blog.mapper.custom.MenuMapperCustom" >
+    <resultMap id="MenuMapperCustom" type="com.smile.blog.entity.custom.MenuCustom" >
         <id column="menu_id" property="menuId" jdbcType="INTEGER" />
         <result column="menu_name" property="menuName" jdbcType="VARCHAR" />
         <result column="menu_url" property="menuUrl" jdbcType="VARCHAR" />

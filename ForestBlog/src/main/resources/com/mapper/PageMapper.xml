@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liuyanzhao.blog.mapper.PageMapper" >
-  <resultMap id="BaseResultMap" type="com.liuyanzhao.blog.entity.Page" >
+<mapper namespace="com.smile.blog.mapper.PageMapper" >
+  <resultMap id="BaseResultMap" type="com.smile.blog.entity.Page" >
     <id column="page_id" property="pageId" jdbcType="INTEGER" />
     <result column="page_key" property="pageKey" jdbcType="VARCHAR" />
     <result column="page_title" property="pageTitle" jdbcType="VARCHAR" />
@@ -26,7 +26,7 @@
     delete from page
     where page_id = #{pageId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.liuyanzhao.blog.entity.Page" >
+  <insert id="insert" parameterType="com.smile.blog.entity.Page" >
     insert into page (page_id, page_key, page_title, 
       page_content, page_create_time, page_update_time, 
       page_view_count, page_comment_count, page_status
@@ -36,7 +36,7 @@
       #{pageViewCount,jdbcType=INTEGER}, #{pageCommentCount,jdbcType=INTEGER}, #{pageStatus,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.liuyanzhao.blog.entity.Page" >
+  <insert id="insertSelective" parameterType="com.smile.blog.entity.Page" >
     insert into page
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="pageId != null" >
@@ -97,7 +97,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liuyanzhao.blog.entity.Page" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.smile.blog.entity.Page" >
     update page
     <set >
       <if test="pageKey != null" >
@@ -127,7 +127,7 @@
     </set>
     where page_id = #{pageId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.liuyanzhao.blog.entity.Page" >
+  <update id="updateByPrimaryKey" parameterType="com.smile.blog.entity.Page" >
     update page
     set page_key = #{pageKey,jdbcType=VARCHAR},
       page_title = #{pageTitle,jdbcType=VARCHAR},

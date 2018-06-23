@@ -37,7 +37,7 @@
         </property>
     </bean>
 
-    <bean id="redisUtil" class="com.liuyanzhao.blog.util.RedisUtil">
+    <bean id="redisUtil" class="com.smile.blog.util.RedisUtil">
         <property name="redisTemplate" ref="redisTemplate"></property>
     </bean>
 

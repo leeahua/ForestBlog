@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liuyanzhao.blog.mapper.NoticeMapper" >
-  <resultMap id="BaseResultMap" type="com.liuyanzhao.blog.entity.Notice" >
+<mapper namespace="com.smile.blog.mapper.NoticeMapper" >
+  <resultMap id="BaseResultMap" type="com.smile.blog.entity.Notice" >
     <id column="notice_id" property="noticeId" jdbcType="INTEGER" />
     <result column="notice_title" property="noticeTitle" jdbcType="VARCHAR" />
     <result column="notice_content" property="noticeContent" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     delete from notice
     where notice_id = #{noticeId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.liuyanzhao.blog.entity.Notice" >
+  <insert id="insert" parameterType="com.smile.blog.entity.Notice" >
     insert into notice (notice_id, notice_title, notice_content, 
       notice_create_time, notice_update_time, 
       notice_status, notice_order)
@@ -32,7 +32,7 @@
       #{noticeCreateTime,jdbcType=TIMESTAMP}, #{noticeUpdateTime,jdbcType=TIMESTAMP}, 
       #{noticeStatus,jdbcType=INTEGER}, #{noticeOrder,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.liuyanzhao.blog.entity.Notice" >
+  <insert id="insertSelective" parameterType="com.smile.blog.entity.Notice" >
     insert into notice
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="noticeId != null" >
@@ -63,7 +63,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liuyanzhao.blog.entity.Notice" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.smile.blog.entity.Notice" >
     update notice
     <set >
       <if test="noticeTitle != null" >
@@ -87,7 +87,7 @@
     </set>
     where notice_id = #{noticeId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.liuyanzhao.blog.entity.Notice" >
+  <update id="updateByPrimaryKey" parameterType="com.smile.blog.entity.Notice" >
     update notice
     set notice_title = #{noticeTitle,jdbcType=VARCHAR},
       notice_content = #{noticeContent,jdbcType=VARCHAR},

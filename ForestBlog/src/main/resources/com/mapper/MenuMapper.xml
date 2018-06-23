@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liuyanzhao.blog.mapper.MenuMapper" >
-  <resultMap id="BaseResultMap" type="com.liuyanzhao.blog.entity.Menu" >
+<mapper namespace="com.smile.blog.mapper.MenuMapper" >
+  <resultMap id="BaseResultMap" type="com.smile.blog.entity.Menu" >
     <id column="menu_id" property="menuId" jdbcType="INTEGER" />
     <result column="menu_name" property="menuName" jdbcType="VARCHAR" />
     <result column="menu_url" property="menuUrl" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from menu
     where menu_id = #{menuId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.liuyanzhao.blog.entity.Menu" >
+  <insert id="insert" parameterType="com.smile.blog.entity.Menu" >
     insert into menu (menu_id, menu_name, menu_url, 
       menu_level, menu_icon, menu_order, 
       menu_status)
@@ -31,7 +31,7 @@
       #{menuLevel,jdbcType=INTEGER}, #{menuIcon,jdbcType=VARCHAR}, #{menuOrder,jdbcType=INTEGER}, 
       #{menuStatus,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.liuyanzhao.blog.entity.Menu" >
+  <insert id="insertSelective" parameterType="com.smile.blog.entity.Menu" >
     insert into menu
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="menuId != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liuyanzhao.blog.entity.Menu" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.smile.blog.entity.Menu" >
     update menu
     <set >
       <if test="menuName != null" >
@@ -104,7 +104,7 @@
     </set>
     where menu_id = #{menuId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.liuyanzhao.blog.entity.Menu" >
+  <update id="updateByPrimaryKey" parameterType="com.smile.blog.entity.Menu" >
     update menu
     set menu_name = #{menuName,jdbcType=VARCHAR},
       menu_url = #{menuUrl,jdbcType=VARCHAR},

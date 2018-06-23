@@ -63,15 +63,7 @@
 
                     <div class="menu-pcmenu-container">
                         <ul id="menu-pcmenu" class="down-menu nav-menu sf-js-enabled sf-arrows">
-                            <li>
-                                   <form method="get" id="searchform" action="/search">
-                                        <span>
-                                            <input type="text" value="" class="" name="query" id="s" placeholder="输入搜索内容"required="">
-                                            <button type="submit" class="" id="searchsubmit">搜索</button>
-                                        </span>
-                                    </form>
-                                <div class="clear"></div>
-                            </li>
+
                             <li>
                                 <a href="/">
                                     <i class="fa-home fa"></i>

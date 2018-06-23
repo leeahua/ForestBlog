@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liuyanzhao.blog.mapper.custom.ArticleMapperCustom" >
-    <resultMap id="ArticleMapperCustom" type="com.liuyanzhao.blog.entity.custom.ArticleCustom" >
+<mapper namespace="com.smile.blog.mapper.custom.ArticleMapperCustom" >
+    <resultMap id="ArticleMapperCustom" type="com.smile.blog.entity.custom.ArticleCustom" >
         <id column="article_id" property="articleId" jdbcType="INTEGER" />
         <result column="article_user_id" property="articleUserId" jdbcType="INTEGER" />
         <result column="article_title" property="articleTitle" jdbcType="VARCHAR" />
@@ -98,7 +98,7 @@
 
 
     <!--文章列表查询-->
-    <select id="getArticleList" parameterType="com.liuyanzhao.blog.entity.custom.ArticleListVo"
+    <select id="getArticleList" parameterType="com.smile.blog.entity.custom.ArticleListVo"
             resultMap="ArticleMapperCustom">
         SELECT
         <include refid="article_table_all_columns"/>
@@ -322,7 +322,7 @@
     </update>
 
     <!--获得最后更新的记录-->
-    <select id="getLastUpdateArticle" resultType="com.liuyanzhao.blog.entity.custom.ArticleCustom">
+    <select id="getLastUpdateArticle" resultType="com.smile.blog.entity.custom.ArticleCustom">
         SELECT
         <include refid="article_table_all_columns"/>
         FROM `article`

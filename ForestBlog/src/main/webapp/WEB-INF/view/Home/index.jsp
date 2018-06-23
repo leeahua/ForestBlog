@@ -33,12 +33,6 @@
                     <article  class="post type-post">
 
                         <figure class="thumbnail">
-                          <%--  <a href="/article/${a.articleCustom.articleId}">
-                                <img width="280" height="100"
-                                     src="/img/thumbnail/random/img_${a.articleCustom.articleId%400}.jpg"
-                                     class="attachment-content size-content wp-post-image"
-                                     alt="${a.articleCustom.articleTitle}">
-                            </a>--%>
                             <span class="cat">
                                 <a href="/category/${a.categoryCustomList[a.categoryCustomList.size()-1].categoryId}">
                                         ${a.categoryCustomList[a.categoryCustomList.size()-1].categoryName}
@@ -198,7 +192,7 @@
 
     <%--侧边栏 start--%>
     <rapid:override name="right">
-        <%@include file="Public/part/sidebar-2.jsp" %>
+        <%@include file="Public/part/sidebar-1.jsp" %>
     </rapid:override>
     <%--侧边栏 end--%>
 
