@@ -10,10 +10,12 @@ import com.smile.blog.entity.custom.CategoryCustom;
 import com.smile.blog.service.CategoryService;
 import com.smile.blog.util.others.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -30,6 +32,9 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Autowired
 	private ArticleMapperCustom articleMapperCustom;
+
+	@Autowired
+	private RedisTemplate redisTemplate;
 
 	@Override
 	public Integer countCategory(Integer status) throws Exception {
@@ -114,6 +119,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void deleteCategory(Integer id) throws Exception {
         categoryMapperCustom.deleteCategory(id);
+		redisTemplate.expire("categoryList", 0, TimeUnit.SECONDS);
     }
 
     @Override
@@ -125,11 +131,13 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public void insertCategory(Category category) throws Exception {
 		categoryMapper.insertSelective(category);
+		redisTemplate.expire("categoryList", 0, TimeUnit.SECONDS);
 	}
 
 	@Override
 	public void updateCategory(Category category) throws Exception {
 		categoryMapper.updateByPrimaryKeySelective(category);
+		redisTemplate.expire("categoryList", 0, TimeUnit.SECONDS);
 	}
 
 	@Override

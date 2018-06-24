@@ -14,10 +14,12 @@ import com.smile.blog.service.TagService;
 import com.smile.blog.util.others.Page;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by 言曌 on 2017/9/2.
@@ -38,6 +40,9 @@ public class TagServiceImpl implements TagService {
 
 	@Autowired
 	private ArticleMapperCustom articleMapperCustom;
+
+	@Autowired
+	private RedisTemplate redisTemplate;
 
 	//获得标签总数
 	@Override
@@ -134,16 +139,19 @@ public class TagServiceImpl implements TagService {
     @Override
     public void insertTag(Tag tag) throws Exception {
         tagMapper.insertSelective(tag);
+		redisTemplate.expire("tagList", 0, TimeUnit.SECONDS);
     }
 
     @Override
     public void updateTag(Tag tag) throws Exception {
         tagMapper.updateByPrimaryKeySelective(tag);
+		redisTemplate.expire("tagList", 0, TimeUnit.SECONDS);
     }
 
     @Override
     public void deleteTag(Integer id) throws Exception {
         tagMapper.deleteByPrimaryKey(id);
+		redisTemplate.expire("tagList", 0, TimeUnit.SECONDS);
     }
 
 	@Override
