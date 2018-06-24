@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.context.request.WebRequestInterceptor;
 
@@ -44,17 +45,18 @@ public class HomeResourceInterceptor implements WebRequestInterceptor {
      */
     @Override
     public void preHandle(WebRequest request) throws Exception {
-        System.out.println("HomeResourceInterceptor...preHandle......");
+        //System.out.println("HomeResourceInterceptor...preHandle......");
         //导航主要菜单显示
         List<CategoryCustom> categoryList;
         if(redisTemplate.hasKey("categoryList")){
             categoryList = (List<CategoryCustom>)redisTemplate.opsForList().range("categoryList",0,-1);
-             log.info("categoryList:{}", JSONObject.valueToString(categoryList));
         }else{
             //分类目录显示
             categoryList = categoryService.listCategory(1);
-            redisTemplate.opsForList().rightPushAll("categoryList",categoryList);
-            redisTemplate.expire("categoryList",60*10,TimeUnit.SECONDS);
+            if(!CollectionUtils.isEmpty(categoryList)) {
+                redisTemplate.opsForList().rightPushAll("categoryList", categoryList);
+                redisTemplate.expire("categoryList", 60 * 10, TimeUnit.SECONDS);
+            }
         }
         //categoryList = categoryService.listCategory(1);
 
@@ -80,8 +82,10 @@ public class HomeResourceInterceptor implements WebRequestInterceptor {
             tagList  = (List<TagCustom>)redisTemplate.opsForList().range("tagList",0,-1);
         }else{
             tagList = tagService.listTag(1);
-            redisTemplate.opsForList().rightPushAll("tagList",tagList);
-            redisTemplate.expire("tagList",60*10,TimeUnit.SECONDS);
+            if(!CollectionUtils.isEmpty(tagList)) {
+                redisTemplate.opsForList().rightPushAll("tagList", tagList);
+                redisTemplate.expire("tagList", 60 * 10, TimeUnit.SECONDS);
+            }
         }
 		request.setAttribute("tagList",tagList,WebRequest.SCOPE_REQUEST);
 		//获得随机文章

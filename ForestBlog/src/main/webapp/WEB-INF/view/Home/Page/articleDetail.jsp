@@ -177,7 +177,7 @@
 
 
                 <%--版权声明 start--%>
-            <div class="authorbio wow fadeInUp" >
+           <%-- <div class="authorbio wow fadeInUp" >
                 <img alt="${articleDetailVo.userCustom.userNickname}" src="${articleDetailVo.userCustom.userAvatar}"
                      class="avatar avatar-64 photo" height="64" width="64">
                 <ul class="postinfo">
@@ -198,12 +198,12 @@
                     </li>
                 </ul>
                 <div class="clear"></div>
-            </div>
+            </div>--%>
                 <%--版权声明 end--%>
 
 
                 <%--相关文章 start--%>
-            <div id="single-widget">
+           <%-- <div id="single-widget">
                 <div class="wow fadeInUp" data-wow-delay="0.3s">
                     <aside id="related_post-2" class="widget">
                         <h3 class="widget-title">
@@ -220,7 +220,7 @@
                         </div>
                         <div class="clear"></div>
                     </aside>
-                        <%--猜你喜欢 start--%>
+                        &lt;%&ndash;猜你喜欢 start&ndash;%&gt;
                     <aside id="hot_post-8" class="widget hot_post">
                         <h3 class="widget-title"><span class="s-icon"></span>猜你喜欢</h3>
                         <div id="hot_post_widget">
@@ -237,10 +237,10 @@
                         </div>
                         <div class="clear"></div>
                     </aside>
-                        <%--猜你喜欢 end--%>
+                        &lt;%&ndash;猜你喜欢 end&ndash;%&gt;
                 </div>
                 <div class="clear"></div>
-            </div>
+            </div>--%>
                 <%--相关文章 end--%>
 
                 <%--上一篇下一篇 start--%>

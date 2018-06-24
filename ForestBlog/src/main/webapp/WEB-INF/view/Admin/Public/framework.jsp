@@ -53,7 +53,7 @@
                 </dl>
             </li>
             <li class="layui-nav-item">
-                <a href="/admin/logout">退了</a>
+                <a href="/admin/logout">退出</a>
             </li>
         </ul>
     </div>
